@@ -57,6 +57,19 @@ export function Preview({ svg, error, isRendering }: PreviewProps) {
 
   return (
     <section className="workspace-pane preview-pane" aria-label="Diagram preview">
+      <div className="pane-heading preview-heading">
+        <div className="pane-title">
+          <span className="pane-icon preview-icon" aria-hidden="true">◈</span>
+          <div>
+            <h2>Preview</h2>
+            <p>Your rendered Mermaid diagram</p>
+          </div>
+        </div>
+        <span className={`render-state${error ? ' has-error' : ''}`}>
+          <i aria-hidden="true" />
+          {error ? 'Needs attention' : isRendering ? 'Rendering' : 'Live'}
+        </span>
+      </div>
       <div
         className={`preview-content ${isPanning ? 'is-panning' : ''}`}
         onPointerDown={beginPan}

@@ -6,7 +6,7 @@ test('renders the starter diagram and downloads every format', async ({ page }, 
   await expect(page.getByRole('heading', { name: 'Preview' })).toBeVisible();
   await expect(page.locator('.diagram svg')).toBeVisible();
   const sourceDownload = page.waitForEvent('download');
-  await page.getByRole('button', { name: 'Source' }).click();
+  await page.getByRole('button', { name: 'Source', exact: true }).click();
   expect((await sourceDownload).suggestedFilename()).toBe('diagram.mmd');
   const svgDownload = page.waitForEvent('download');
   await page.getByRole('button', { name: 'SVG' }).click();
