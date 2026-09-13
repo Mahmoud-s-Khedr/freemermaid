@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-label="FreeMermaid">
+  <rect width="128" height="128" rx="28" fill="#172554"/>
+  <path d="M27 39h74v50H27z" fill="#eff6ff" rx="10"/>
+  <path d="M43 57h42M43 70h24M83 70l7 7 11-13" fill="none" stroke="#2563eb" stroke-linecap="round" stroke-linejoin="round" stroke-width="8"/>
+</svg>
