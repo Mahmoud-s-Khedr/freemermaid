@@ -15,6 +15,15 @@ There are no accounts, ads, analytics, server-side diagram storage, or API calls
 - Installable PWA with an offline app shell
 - Strict Mermaid rendering configuration and no interactive diagram callbacks
 
+## Engineering choices
+
+- **Keep diagram data local.** Rendering, draft persistence, and exports run in the browser. IndexedDB holds one versioned draft; there is no account, API, or server-side document store.
+- **Prefer a useful last-known result.** Source edits are debounced, and each render carries a request identifier so a slower earlier render cannot replace newer input. A syntax error keeps the last valid SVG on the canvas while showing the error.
+- **Make the offline boundary explicit.** The PWA precaches the built app shell after an initial online visit; an update prompt lets the user choose when to activate a newly deployed cache.
+- **Export without a service.** Source and SVG use browser Blob downloads. PNG is created by drawing the rendered SVG to an in-memory 2× canvas.
+
+See the [architecture guide](docs/architecture.md) for the complete data flow, supported Mermaid restrictions, and hosting boundary.
+
 ## Quick start
 
 1. Open FreeMermaid while online once.
